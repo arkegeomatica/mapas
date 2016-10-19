@@ -1,4 +1,4 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -10,7 +10,7 @@
     <meta name="description" content="Visor de Rutas Arqueologicas de la Provincia de Zamora">
     <meta name="author" content="Evaristo Gestoso Rodriguez">
     <meta name="keywords" content="Zamora Arqueologia Rutas Patrimonio Leaflet SIG">
-    <title>Rutas ArqueolÃ³gicas por Zamora</title>
+    <title>Rutas Arqueológicas por Zamora</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -39,25 +39,19 @@
 	<a class="navbar-brand" href="#" title="Arqueologia" taget="_blank">Arqueologia</a>
           <a class="navbar-brand" href="#">IdeARK</a>
         </div>
-        <div class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" role="search">
-            <div class="form-group has-feedback">
-                <input id="searchbox" type="text" placeholder="Buscar" class="form-control">
-                <span id="searchicon" class="fa fa-search form-control-feedback"></span>
-            </div>
-          </form>
+        
           <ul class="nav navbar-nav">
 	  	  <!-- 01 Dropdown Temas-->          
            <li class="dropdown">
             <a class="dropdown-toggle" id="downloadDrop" href="#" role="button" data-toggle="dropdown"><i class="fa fa-eye white"></i>&nbsp;&nbsp;Temas <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="index.html" title="Equipamientos culturales"data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;LÃ­mites</a></li>
-              <li><a href="index2.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;CatÃ¡logo CÃ³rdoba</a></li>
+              <li><a href="index.html" title="Equipamientos culturales"data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Límites</a></li>
+              <li><a href="index2.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Catálogo</a></li>
               <li><a href="orto.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Ortofotos</a></li>
-              <li><a href="castillosOSM.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Castillos</a></li>
-              <li><a href="ark.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;ArqueologÃ­a</a></li>
-              <li><a href="suelos.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Plantilla Suelos</a></li>
-               <li><a href="castrosOSM.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Yacimientos OSM</a></li>
+              <li><a href="divisiones.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Divisiones</a></li>
+              <li><a href="ark1.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Arqueología</a></li>
+              <li><a href="ark.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Equipamientos Culturales</a></li>
+               <li><a href="gestion.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Gestión</a></li>
             </ul>
           </li>
             <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="about-btn"><i class="fa fa-question-circle white"></i>&nbsp;&nbsp;About</a></li>
@@ -78,50 +72,19 @@
                  
                 </ul>
             </li>
-            <li class="hidden-xs"><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="list-btn"><i class="fa fa-list white"></i>&nbsp;&nbsp;Yacimientos</a></li>
+            
           </ul>
         </div><!--/.navbar-collapse -->
       </div>
     </div>
 
+    <!-- container -->
     <div id="container">
-      <div id="sidebar">
-        <div class="sidebar-wrapper">
-          <div class="panel panel-default" id="features">
-            <div class="panel-heading">
-              <h3 class="panel-title">Yacimientos
-              <button type="button" class="btn btn-xs btn-default pull-right" id="sidebar-hide-btn"><i class="fa fa-chevron-left"></i></button></h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-xs-8 col-md-8">
-                  <input type="text" class="form-control search" placeholder="Filter" />
-                </div>
-                <div class="col-xs-4 col-md-4">
-                  <button type="button" class="btn btn-primary pull-right sort" data-sort="feature-name" id="sort-btn"><i class="fa fa-sort"></i>&nbsp;&nbsp;Sort</button>
-                </div>
-              </div>
-            </div>
-            <div class="sidebar-table">
-              <table class="table table-hover" id="feature-list">
-                <thead class="hidden">
-                  <tr>
-                    <th>Icon</th>
-                  <tr>
-                  <tr>
-                    <th>Name</th>
-                  <tr>
-                  <tr>
-                    <th>Chevron</th>
-                  <tr>
-                </thead>
-                <tbody class="list"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- lateral -->
+      
+      <!-- map -->
       <div id="map"></div>
+
     </div>
     <div id="loading">
       <div class="loading-indicator">
@@ -136,7 +99,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Bienvenido a Rutas ArqueolÃ³gicas por Zamora!</h4>
+            <h4 class="modal-title">Bienvenido a Rutas Arqueológicas por Zamora!</h4>
           </div>
           <div class="modal-body">
             <ul class="nav nav-tabs nav-justified" id="aboutTabs">
@@ -217,7 +180,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
@@ -309,6 +272,13 @@
     <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
     <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js"></script>
     <script src="assets/leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="assets/js/leaflet.filelayer.js"></script>
+  <script src="assets/js/togeojson.js"></script>
+  
+
+  <script src="assets/js/togeojson.js"></script>
+
+    <script src="assets/js/L.Map.Sync.js"></script>
+    <script src="assets/js/catalogo.js"></script>
   </body>
 </html>
