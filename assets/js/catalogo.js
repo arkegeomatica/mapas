@@ -407,7 +407,7 @@ var ed_edificios = L.geoJson(null, {
     });
   }
 });
-$.getJSON("data/frierapuntos.geojson", function (data) {
+$.getJSON("data/fincaspuntos.geojson", function (data) {
   ed_edificios.addData(data);
 });
 // ######### ed_hitos ###########
@@ -596,8 +596,8 @@ var groupedOverlays = {
   "CATASTRO": {
         
     "RUSTICAS SITRAMA":ed_monumentos,
-    "RUSTICAS FRIERA":ed_edificios,
-    "URBANAS":ed_conjuntos,
+    "FINCAS":ed_edificios,
+    "POLIGONOS PARCELAS":ed_conjuntos,
     "Hitos":ed_hitos,
 
   }
