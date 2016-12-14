@@ -273,7 +273,7 @@ var ed_monumentos = L.geoJson(null, {
     });
   }
 });
-$.getJSON("data/ed_monumentos.geojson", function (data) {
+$.getJSON("data/sitrama_poligonos.geojson", function (data) {
   ed_monumentos.addData(data);
 });
 
@@ -340,7 +340,7 @@ var ed_conjuntos = L.geoJson(null, {
     });
   }
 });
-$.getJSON("data/ed_conjuntos.geojson", function (data) {
+$.getJSON("data/masahereditaria.geojson", function (data) {
   ed_conjuntos.addData(data);
 });
 
@@ -407,7 +407,7 @@ var ed_edificios = L.geoJson(null, {
     });
   }
 });
-$.getJSON("data/ed_edificios.geojson", function (data) {
+$.getJSON("data/frierapuntos.geojson", function (data) {
   ed_edificios.addData(data);
 });
 // ######### ed_hitos ###########
@@ -568,9 +568,9 @@ function VerLeyenda () {
 
 var baseLayers = {
   "PNOA": ortoPNOA,
-  "PNOA+Callejero": PNOA,
+ 
   "Catastro": catastro,
-  "Callejero CDAU":cdau,
+  
   "OpenStreetMap":osm
   //"Google":ggl
   
@@ -578,7 +578,7 @@ var baseLayers = {
 
 var groupedOverlays = {
   
-  "Límites": {
+  "HISPANIA": {
     
     "CH":limite_ch
     //"1994":limite_humanidad_94,
@@ -586,14 +586,14 @@ var groupedOverlays = {
     
 
   },
-  "Espacios": {
+  "PARCELAS": {
     
     
     "Catalogados":espacios_catalogados,
     "Áreas Libres":al_espacios
 
   },
-  "Edificios": {
+  "CATASTRO": {
         
     "Monumentos":ed_monumentos,
     "Edificios":ed_edificios,
