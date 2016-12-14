@@ -227,10 +227,10 @@ var ed_monumentos = L.geoJson(null, {
   },
    onEachFeature: function (feature, layer) {
     if (feature.properties) {
-      var content = "<h2>"+feature.properties.id0+"</h2><p><b>Nombre: </b>"+feature.properties.nombre+"</p>"+"<p><b>Ficha: </b> <a target='_blank' href='http://www.gmucordoba.es/"+feature.properties.pdf+"'>Ver ficha</a></p>"+"<p><b>Imagen: </b><br><img src='http://www.gmucordoba.es/"+feature.properties.img+"' width='70%'></p>";
+      var content = "<h2>"+feature.properties.id0+"</h2><p><b>PARCELAS: </b>"+feature.properties.Parcela+"</p>"+"<p><b>Ficha: </b> <a target='_blank' href='http://www.gmucordoba.es/"+feature.properties.pdf+"'>Ver ficha</a></p>"+"<p><b>Imagen: </b><br><img src='http://www.gmucordoba.es/"+feature.properties.img+"' width='70%'></p>";
       layer.on({
         click: function (e) {
-          $("#feature-title").html("Edificio Catalogado");
+          $("#feature-title").html("PARCELA");
           $("#feature-info").html(content);
           $("#featureModal").modal("show");
        }
@@ -273,7 +273,7 @@ var ed_monumentos = L.geoJson(null, {
     });
   }
 });
-$.getJSON("data/sitrama_poligonos.geojson", function (data) {
+$.getJSON("data/parcelas.geojson", function (data) {
   ed_monumentos.addData(data);
 });
 
@@ -294,10 +294,10 @@ var ed_conjuntos = L.geoJson(null, {
   },
    onEachFeature: function (feature, layer) {
     if (feature.properties) {
-      var content = "<h2>"+feature.properties.id0+"</h2><p><b>Nombre: </b>"+feature.properties.nombre+"</p>"+"<p><b>Ficha: </b> <a target='_blank' href='http://www.gmucordoba.es/"+feature.properties.pdf+"'>Ver ficha</a></p>";
+      var content = "<h2>"+feature.properties.id0+"</h2><p><b>PARCELAS: </b>"+feature.properties.Parcela+"</p>"+"<p><b>Ficha: </b> <a target='_blank' href='http://www.gmucordoba.es/"+feature.properties.pdf+"'>Ver ficha</a></p>";
       layer.on({
         click: function (e) {
-          $("#feature-title").html("Edificio Catalogado");
+          $("#feature-title").html("PARCELAS");
           $("#feature-info").html(content);
           $("#featureModal").modal("show");
        }
@@ -320,7 +320,7 @@ var ed_conjuntos = L.geoJson(null, {
         });
 
 
-      var contentpopup = "<p><b>"+feature.properties.id0+"</b><br>"+feature.properties.nombre+"</p";
+      var contentpopup = "<p><b>"+feature.properties.id0+"</b><br>"+feature.properties.Parcela+"</p";
       var infopopup = new L.Rrose({ offset: new L.Point(0,-10), closeButton: false, autoPan: false })
             //.setContent(feature.properties.id)
       .setContent(contentpopup)
@@ -340,7 +340,7 @@ var ed_conjuntos = L.geoJson(null, {
     });
   }
 });
-$.getJSON("data/masahereditaria.geojson", function (data) {
+$.getJSON("data/parcelas.geojson", function (data) {
   ed_conjuntos.addData(data);
 });
 
@@ -361,10 +361,10 @@ var ed_edificios = L.geoJson(null, {
   },
    onEachFeature: function (feature, layer) {
     if (feature.properties) {
-      var content = "<h2>"+feature.properties.id0+"</h2><p><b>Nombre: </b>"+feature.properties.nombre+"</p>"+"<p><b>Ficha: </b> <a target='_blank' href='http://www.gmucordoba.es/"+feature.properties.pdf+"'>Ver ficha</a></p>"+"<p><b>Imagen: </b><br><img src='http://www.gmucordoba.es/"+feature.properties.img+"' width='70%'></p>";
+      var content = "<h2>"+feature.properties.id0+"</h2><p><b>PARCELA: </b>"+feature.properties.Parcela+"</p>"+"<p><b>Valoración: </b> <a target='_blank' href='http://www.gmucordoba.es/"+feature.properties.pdf+"'>Ver ficha</a></p>"+"<p><b>Imagen: </b><br><img src='http://www.gmucordoba.es/"+feature.properties.img+"' width='70%'></p>";
       layer.on({
         click: function (e) {
-          $("#feature-title").html("Edificio Catalogado");
+          $("#feature-title").html("PARCELAS");
           $("#feature-info").html(content);
           $("#featureModal").modal("show");
        }
@@ -430,7 +430,7 @@ var ed_hitos = L.geoJson(null, {
       var content = "<h2>"+feature.properties.id0+"</h2><p><b>Nombre: </b>"+feature.properties.nombre+"</p>"+"<p><b>Ficha: </b> <a target='_blank' href='http://www.gmucordoba.es/"+feature.properties.pdf+"'>Ver ficha</a></p>"+"<p><b>Imagen: </b><br><img src='http://www.gmucordoba.es/"+feature.properties.img+"' width='70%'></p>";
       layer.on({
         click: function (e) {
-          $("#feature-title").html("Edificio Catalogado");
+          $("#feature-title").html("PARCELAS");
           $("#feature-info").html(content);
           $("#featureModal").modal("show");
        }
@@ -473,7 +473,7 @@ var ed_hitos = L.geoJson(null, {
     });
   }
 });
-$.getJSON("data/ed_hitos.geojson", function (data) {
+$.getJSON("data/provincias.geojson", function (data) {
   ed_hitos.addData(data);
 });
 // ######### limite_ch ###########
@@ -496,7 +496,7 @@ $.getJSON("data/limite_ch.geojson", function (data) {
 // MAP
 map = L.map("map", {
   zoom: 14,
-  center: [37.883094,-4.776287],
+  center: [42.883094,-6.776287],
   layers: [PNOA, limite_ch, espacios_catalogados,al_espacios],
   zoomControl: false,
   attributionControl: true
@@ -595,9 +595,9 @@ var groupedOverlays = {
   },
   "CATASTRO": {
         
-    "Monumentos":ed_monumentos,
-    "Edificios":ed_edificios,
-    "Conjuntos":ed_conjuntos,
+    "RUSTICAS SITRAMA":ed_monumentos,
+    "RUSTICAS FRIERA":ed_edificios,
+    "URBANAS":ed_conjuntos,
     "Hitos":ed_hitos,
 
   }
