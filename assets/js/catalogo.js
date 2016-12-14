@@ -496,7 +496,7 @@ $.getJSON("data/limite_ch.geojson", function (data) {
 // MAP
 map = L.map("map", {
   zoom: 14,
-  center: [42.883094,-6.776287],
+  center: [42,-6],
   layers: [PNOA, limite_ch, espacios_catalogados,al_espacios],
   zoomControl: false,
   attributionControl: true
