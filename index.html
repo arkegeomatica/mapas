@@ -1,7 +1,7 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
     <meta name="mobile-web-app-capable" content="yes">
@@ -12,117 +12,89 @@
     <meta name="keywords" content="Zamora Arqueologia Rutas Patrimonio Leaflet SIG">
     <title>Rutas Arqueológicas por Zamora</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css">
-    <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css">
-    <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css">
-    <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.css">
-    <link rel="stylesheet" href="assets/leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.css">
-    <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="assets/js/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/js/dist/css/leaflet.css">
 
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon-76.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicon-120.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicon-152.png">
-    <link rel="icon" sizes="196x196" href="assets/img/favicon-196.png">
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-  </head>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.css">
 
-  <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <div class="navbar-icon-container">
-            <a href="#" class="navbar-icon pull-right visible-xs" id="nav-btn"><i class="fa fa-bars fa-lg white"></i></a>
-            <a href="#" class="navbar-icon pull-right visible-xs" id="sidebar-toggle-btn"><i class="fa fa-search fa-lg white"></i></a>
-          </div>
-	<a class="navbar-brand" href="#" title="Arqueologia" taget="_blank">Arqueologia</a>
-          <a class="navbar-brand" href="#">IdeARK</a>
-        </div>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+  <link rel="stylesheet" href="assets/css/app.css">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon-76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicon-120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicon-152.png">
+  <link rel="icon" sizes="196x196" href="assets/img/favicon-196.png">
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+  
+  <link rel="stylesheet" href="plugins/leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.css">
+  <link rel="stylesheet" href="plugins/L.GeoSearch/src/css/l.geosearch.css" />
+  <link rel="stylesheet" href="plugins/rrose-master/leaflet.rrose.css" />
+  <link rel="stylesheet" href="plugins/L.Control.Button/L.Control.Button.css" />
+  <link rel="stylesheet" href="plugins/Leaflet-MiniMap/src/Control.MiniMap.css" />
+  <link rel="stylesheet" href="plugins/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css">
+</head>
+
+<body>
+
+  <!-- navbar -->
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <!-- 
+      * navbar-inverse negro
+      * navbar-fixed-top navbar-fixed-bottom
+    -->
+    <div class="navbar-header">
+     <div class="navbar-icon-container">
+      <a href="#" class="navbar-icon pull-right visible-xs" id="nav-btn"><i class="fa fa-bars fa-lg white"></i></a>
+    </div>
+    <a href="http//www.ayuncordoba.es" target="_blank" title="Ayuntamiento de Córdoba"><img class="logo" width="40px" src="assets/img/ayto.png"></a>
+    <a class="navbar-brand" href="#" title="Arqueologia" taget="_blank">Arqueología</a> 
+    <h4 class="navbar-text">RIPA DE TERA</h4> <!-- subtítulo -->
+  </div> <!-- navbar-header -->
+        
         <div class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" role="search">
-            <div class="form-group has-feedback">
-                <input id="searchbox" type="text" placeholder="Buscar" class="form-control">
-                <span id="searchicon" class="fa fa-search form-control-feedback"></span>
-            </div>
-          </form>
           <ul class="nav navbar-nav">
-	  	  <!-- 01 Dropdown Temas-->          
+            <!-- 01 Dropdown Temas-->          
            <li class="dropdown">
             <a class="dropdown-toggle" id="downloadDrop" href="#" role="button" data-toggle="dropdown"><i class="fa fa-eye white"></i>&nbsp;&nbsp;Temas <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="index.html" title="Equipamientos culturales"data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Límites</a></li>
-              <li><a href="index2.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Catálogo Córdoba</a></li>
+              <li><a href="Catalogo.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Catálogo</a></li>
               <li><a href="orto.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Ortofotos</a></li>
-              <li><a href="castillosOSM.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Castillos</a></li>
-              <li><a href="ark.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Arqueología</a></li>
-              <li><a href="suelos.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Plantilla Suelos</a></li>
-               <li><a href="castrosOSM.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Yacimientos OSM</a></li>
+              <li><a href="divisiones.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Divisiones</a></li>
+              <li><a href="arqueologia.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Arqueología</a></li>
+              <li><a href="castros.html" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-eye"></i>&nbsp;&nbsp;Edad del Hierro</a></li>
+               </ul>
+          </li>
+           <!-- Sobre id "Leyenda"-->
+<!--            <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="legend-btn"><i class="fa fa-picture-o white"></i>&nbsp;&nbsp;Leyenda</a></li> -->
+         <!-- Dropdown Descargas-->          
+          <li class="dropdown">
+            <a class="dropdown-toggle" id="downloadDrop" href="#" role="button" data-toggle="dropdown"><i class="fa fa-cloud-download white"></i>&nbsp;&nbsp;Descargas <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="data/arqueologia/arqueologia_geojson.zip" download="arqueologia_geojson.zip" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;geoJSON</a></li>
+        <!--       <li><a href="data/limites/limites.kml" download="limites.kml" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;KML</a></li> -->
+              <li><a href="data/arqueologia/arqueologia_shp.zip" download="arqueologia_shp.zip" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Shape (ETRS89 UTM30N)</a></li>
             </ul>
           </li>
-            <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="about-btn"><i class="fa fa-question-circle white"></i>&nbsp;&nbsp;About</a></li>
-            <li class="dropdown">
-              <a id="toolsDrop" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe white"></i>&nbsp;&nbsp;Tools <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="full-extent-btn"><i class="fa fa-arrows-alt"></i>&nbsp;&nbsp;Zoom To Full Extent</a></li>
-                <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="legend-btn"><i class="fa fa-picture-o"></i>&nbsp;&nbsp;Show Legend</a></li>
-                <li class="divider hidden-xs"></li>
-                <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="login-btn"><i class="fa fa-user"></i>&nbsp;&nbsp;Login</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-                <a class="dropdown-toggle" id="downloadDrop" href="#" role="button" data-toggle="dropdown"><i class="fa fa-cloud-download white"></i>&nbsp;&nbsp;Descargas <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="data/arqueovisitable.geojson" download="arqueovisitable.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Sitios Visitables</a></li>
-                  <li><a href="data/arqueozonas.geojson" download="arqueozonas.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;arqueozonas</a></li>
-                 
-                </ul>
-            </li>
-            <li class="hidden-xs"><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="list-btn"><i class="fa fa-list white"></i>&nbsp;&nbsp;Yacimientos</a></li>
-          </ul>
-        </div><!--/.navbar-collapse -->
-      </div>
+         <!-- Sobre id "Acerca de "-->
+           <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="info-btn"><i class="fa fa-info-circle white"></i>&nbsp;&nbsp;Acerca de</a></li>
+         <!-- Sobre id "Ayuda "-->
+           <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="ayuda-btn"><i class="fa fa-thumbs-up white"></i>&nbsp;&nbsp;Ayuda</a></li>  
+        </ul> <!--/.nav navbar-nav -->
+      </div><!--/.navbar-collapse -->
     </div>
 
+    <!-- container -->
     <div id="container">
-      <div id="sidebar">
-        <div class="sidebar-wrapper">
-          <div class="panel panel-default" id="features">
-            <div class="panel-heading">
-              <h3 class="panel-title">Yacimientos
-              <button type="button" class="btn btn-xs btn-default pull-right" id="sidebar-hide-btn"><i class="fa fa-chevron-left"></i></button></h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-xs-8 col-md-8">
-                  <input type="text" class="form-control search" placeholder="Filter" />
-                </div>
-                <div class="col-xs-4 col-md-4">
-                  <button type="button" class="btn btn-primary pull-right sort" data-sort="feature-name" id="sort-btn"><i class="fa fa-sort"></i>&nbsp;&nbsp;Sort</button>
-                </div>
-              </div>
-            </div>
-            <div class="sidebar-table">
-              <table class="table table-hover" id="feature-list">
-                <thead class="hidden">
-                  <tr>
-                    <th>Icon</th>
-                  <tr>
-                  <tr>
-                    <th>Name</th>
-                  <tr>
-                  <tr>
-                    <th>Chevron</th>
-                  <tr>
-                </thead>
-                <tbody class="list"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- lateral -->
+      
+      <!-- map -->
       <div id="map"></div>
+
     </div>
+
     <div id="loading">
       <div class="loading-indicator">
         <div class="progress progress-striped active">
@@ -130,144 +102,128 @@
         </div>
       </div>
     </div>
-
-    <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog">
-      <div class="modal-dialog modal-lg">
+    <!-- /.Modal Info -->
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Bienvenido a Rutas Arqueológicas por Zamora!</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 class="modal-title">Tema: Arqueología</h3>
           </div>
-          <div class="modal-body">
-            <ul class="nav nav-tabs nav-justified" id="aboutTabs">
-              <li class="active"><a href="#about" data-toggle="tab"><i class="fa fa-question-circle"></i>&nbsp;Sobre el proyecto</a></li>
-              <li><a href="#contact" data-toggle="tab"><i class="fa fa-envelope"></i>&nbsp;Contacto</a></li>
-              <li><a href="#disclaimer" data-toggle="tab"><i class="fa fa-exclamation-circle"></i>&nbsp;Disclaimer</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i>&nbsp;Metadatos <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#boroughs-tab" data-toggle="tab">Sitios Visitables</a></li>
-                  <li><a href="#subway-lines-tab" data-toggle="tab">Arqueozonas</a></li>
-                  
-                </ul>
-              </li>
+
+
+           <div class="modal-body">
+            <ul class="nav nav-tabs" id="aboutTabs">
+              <li class="active"><a href="#tematico" data-toggle="tab"><i class="fa"></i>&nbsp;Contenido</a></li>
+              <li><a href="#proyecto" data-toggle="tab"><i class="fa"></i>&nbsp;Contexto</a></li>
+
             </ul>
             <div class="tab-content" id="aboutTabsContent">
-              <div class="tab-pane fade active in" id="about">
-                <p>A simple, responsive template for building web mapping applications with <a href="http://getbootstrap.com/">Bootstrap 3</a>, <a href="http://leafletjs.com/" target="_blank">Leaflet</a>, and <a href="http://twitter.github.io/typeahead.js/" target="_blank">typeahead.js</a>. Open source, MIT licensed, and available on <a href="https://github.com/bmcbride/bootleaf" target="_blank">GitHub</a>.</p>
-                <div class="panel panel-primary">
-                  <div class="panel-heading">Features</div>
-                  <ul class="list-group">
-                    <li class="list-group-item">Fullscreen mobile-friendly map template with responsive navbar and modal placeholders</li>
-                    <li class="list-group-item">jQuery loading of external GeoJSON files</li>
-                    <li class="list-group-item">Logical multiple layer marker clustering via the <a href="https://github.com/Leaflet/Leaflet.markercluster" target="_blank">leaflet marker cluster plugin</a></li>
-                    <li class="list-group-item">Elegant client-side multi-layer feature search with autocomplete using <a href="http://twitter.github.io/typeahead.js/" target="_blank">typeahead.js</a></li>
-                    <li class="list-group-item">Responsive sidebar feature list synced with map bounds, which includes sorting and filtering via <a href="http://listjs.com/" target="_blank">list.js</a></li>
-                    <li class="list-group-item">Marker icons included in grouped layer control via the <a href="https://github.com/ismyrnow/Leaflet.groupedlayercontrol" target="_blank">grouped layer control plugin</a></li>
-                  </ul>
-                </div>
+              <div class="tab-pane fade active in" id="tematico">
+              <h3>Patrimonio Arqueológico</h3>
+                <ul>
+                  <li>Patrimonio arqueológico</li>
+                  <li>Murallas de Córdoba (PEPCH)</li>
+                  <li>Cautelas y condiciones especiales de conservación de las murallas (PEPCH)</li>
+                  <li>Reserva arqueológica del subsuelo</li>
+                  <li>Zonificación de protección de patrimonio arqueológico.</li>
+                </ul>
+ 
               </div>
-              <div id="disclaimer" class="tab-pane fade text-danger">
-                <p>The data provided on this site is for informational and planning purposes only.</p>
-                <p>Absolutely no accuracy or completeness guarantee is implied or intended. All information on this map is subject to such variations and corrections as might result from a complete title search and/or accurate field survey.</p>
-              </div>
-              <div class="tab-pane fade" id="contact">
-                <form id="contact-form">
-                  <div class="well well-sm">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="first-name">First Name:</label>
-                          <input type="text" class="form-control" id="first-name">
-                        </div>
-                        <div class="form-group">
-                          <label for="last-name">Last Name:</label>
-                          <input type="text" class="form-control" id="last-email">
-                        </div>
-                        <div class="form-group">
-                          <label for="email">Email:</label>
-                          <input type="text" class="form-control" id="email">
-                        </div>
-                      </div>
-                      <div class="col-md-8">
-                        <label for="message">Message:</label>
-                        <textarea class="form-control" rows="8" id="message"></textarea>
-                      </div>
-                      <div class="col-md-12">
-                        <p>
-                          <button type="submit" class="btn btn-primary pull-right" data-dismiss="modal">Submit</button>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div class="tab-pane fade" id="boroughs-tab">
-                <p>Borough data courtesy of <a href="http://www.nyc.gov/html/dcp/pdf/bytes/nybbwi_metadata.pdf" target="_blank">New York City Department of City Planning</a></p>
-              </div>
-              <div class="tab-pane fade" id="subway-lines-tab">
-                <p><a href="http://spatialityblog.com/2010/07/08/mta-gis-data-update/#datalinks" target="_blank">MTA Subway data</a> courtesy of the <a href="http://www.urbanresearch.org/about/cur-components/cuny-mapping-service" target="_blank">CUNY Mapping Service at the Center for Urban Research</a></p>
-              </div>
-              <div class="tab-pane fade" id="theaters-tab">
-                <p>Theater data courtesy of <a href="https://data.cityofnewyork.us/Recreation/Theaters/kdu2-865w" target="_blank">NYC Department of Information & Telecommunications (DoITT)</a></p>
-              </div>
-              <div class="tab-pane fade" id="museums-tab">
-                <p>Museum data courtesy of <a href="https://data.cityofnewyork.us/Recreation/Museums-and-Galleries/sat5-adpb" target="_blank">NYC Department of Information & Telecommunications (DoITT)</a></p>
-              </div>
+              <div id="proyecto" class="tab-pane fade"> 
+                <!-- <div id="proyecto" class="tab-pane fade text-danger"> -->
+                <p><i>Desarrollado por <a href="http://www.arkegeomatica.es/" target="_blank">IDEark</a> haciendo uso de las herramientas java scfritp Open Sourcer <a href="http://getbootstrap.com/" target="_blank">Bootstrap 3</a>, <a href="http://leafletjs.com/" target="_blank">Leaflet</a> y distintos plugins dde esta libreria JS <a href="http://leafletjs.com/plugins.html" target="_blank">extensiones de Leaflet</a>. Diseno de la aplicación basado en la plantilla <a href="http://bmcbride.github.io/bootleaf/" target="_blank">Bootleaf</a>.</i></p>
+              </div> 
+
+
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
+  <!-- ./Modal Leyenda -->
     <div class="modal fade" id="legendModal" tabindex="-1" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Map Legend</h4>
+            <h4 class="modal-title">Leyenda</h4>
           </div>
           <div class="modal-body">
-            <p>Map Legend goes here...</p>
+            <p><img src="data/leyendas/01_lim.png"></p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+    </div><!-- /.modal Leyenda-->
 
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
-      <div class="modal-dialog modal-sm">
+    <!-- ./Modal Ayuda -->
+    <div class="modal fade" id="ayudaModal" tabindex="-1" role="dialog">
+      <!-- <div class="modal-dialog"> -->
+      <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Login</h4>
+            <h3 class="modal-title">Ayuda</h3>
           </div>
           <div class="modal-body">
-            <form id="contact-form">
-              <fieldset>
-                <div class="form-group">
-                  <label for="name">Username:</label>
-                  <input type="text" class="form-control" id="username">
-                </div>
-                <div class="form-group">
-                  <label for="email">Password:</label>
-                  <input type="password" class="form-control" id="password">
-                </div>
-              </fieldset>
-            </form>
+
+            <h4>Barra de opciones</h4>
+            <p><b>Temas</b></p>
+            <p>Acceso a los diferentes visores por temas.</p>
+            <p><b>Leyenda</b></p>
+            <p>Si se encuentra activa permite la visualización de la leyenda y simbología de las capas de información.</p>
+            <p><b>Descargas</b></p>
+            <p>Menú de descarga de las capas del tema en distintos formatos:</p>
+            <ul>
+              <li>GeoJson en coordendas WGS84</li>
+              <li>KML</li>
+              <li>Shape File (SHP) en coordendas ETR89 UTM30N</li>
+            </ul>
+            <p>Licencia de las capas.</p>
+            <p><b>Acerca de</b></p>
+            <p>Información sobre el Tema cargado y el Proyecto Sistema de Información Geográfica del Caso Histórico de Córdoba.</p>
+            <p><b>Ayuda</b></p>
+            <p>Accede a esta página de ayuda</p>
+            <h4>Herramientas</h4>
+            <p><b>Zoom</b></p>
+            <ul>
+              <li>Zum + Ampliar</li>
+              <li>Zum - Disminuair</li>
+            </ul>
+            <p>Puede utilizarse la rueda (scroll) del ratón para hacer Zum</p>
+            <p><b>Mi ubicación</b></p>
+            <p>Zoom cercano a la localización (IP o GPS de teléfono)</p>
+            <p><b>Cargador de archivos geográficos</b></p>
+            <p>Permite superponer ficheros del tipo KML, GPX y GeoJson en coordenadas WGS84 (EPGS:4326)</p>
+            <p><b>Buscador de direcciones</b></p>
+            <ul>
+              <li>Ej. Calle larga, 26, Sitrama de Tera</li>
+              <li>Ej. Sitramina</li>
+            </ul>
+            <h4>Capas</h4>
+            <p>Para cada uno de los "Temas" se dispone de una cartografía base y un conjunto de capas vinculadas.</p>
+            <p>Las capas base disponibles son:</p>
+            <ul>
+              <li>PNOA: WMS de la ortofotografía del PNOA del <a href="http://www.ign.es/PNOA/">Instituto Geográfico Nacional</a>. Ver Capacidades</li>
+              <li>Catastro: WMS de Catastro de la <a href="https://www.sedecatastro.gob.es">Dirección General de Catastro.</a> Ver Capacidades </li>
+              <li>Callejero CDAU: WMS del <a href="http://www.callejerodeandalucia.es/portal/web/cdau/">Callejero Digital de Andalucía Unificado</a> del IECA-Junta de Andalucía.. Ver capacidades.</li>
+              <li>OpenStreetMap: Mapa colaborativo del proyecto <a href="http://www.openstreetmap.org/">OpenStreetMap.</a></li>
+            </ul>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary" data-dismiss="modal">Login</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+    </div><!-- /.modal Ayuda-->
+
 
     <div class="modal fade" id="featureModal" tabindex="-1" role="dialog">
       <div class="modal-dialog">
@@ -278,37 +234,62 @@
           </div>
           <div class="modal-body" id="feature-info"></div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-    <div class="modal fade" id="attributionModal" tabindex="-1" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">
-              Hecho con <a href='http://bryanmcbride.com'>bryanmcbride.com</a>
-            </h4>
-          </div>
-          <div class="modal-body">
-            <div id="attribution"></div>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+   <!-- jquery, bootstrap y leaflet -->
+   
+    <!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
+    <script src="assets/js/dist/js/jquery-1.11.1.min.js"></script>
+    
+    <!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
+    <script src="assets/js/dist/js/bootstrap.min.js"></script>
+    
+    <!--<script src="//cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>-->
+    <script src="assets/js/dist/js/leaflet.js"></script>
 
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.5/typeahead.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
-    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
-    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js"></script>
-    <script src="assets/leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.5/typeahead.bundle.min.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
+
+    
+   <!-- plugins -->
+
+    <!-- GeoSearch -->
+    <script src="//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.js"></script>
+    
+     <!-- groupedlayercontrol -->
+    <script src="plugins/leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.js"></script>
+
+    
+    <!-- GeoSearch -->
+
+    <script src="plugins/L.GeoSearch/src/js/l.control.geosearch.js"></script>
+    <script src="plugins/L.GeoSearch/src/js/l.geosearch.provider.google.js"></script>
+    
+
+
+    
+    <!-- LOADFILE -->
+    <script src="plugins/Leaflet.FileLayer/leaflet.filelayer.js"></script>
+    <script src="plugins/Leaflet.FileLayer/togeojson/togeojson.js"></script>
+
+    <!-- autoetiquetado -->
+    <script src="plugins/rrose-master/rrose-src.js"></script>
+
+    <script src="plugins/Leaflet.FileLayer/togeojson/togeojson.js"></script>
+    
+    <script src="plugins/Leaflet.EasyButton/easy-button.js"></script>
+    <script src="plugins/L.Control.Button/L.Control.Button.js"></script>
+    <script src="plugins/Leaflet-MiniMap/src/Control.MiniMap.js" type="text/javascript"></script>
+
+    <!-- markets -->
+      <script src="plugins/Leaflet.awesome-markers/dist/leaflet.awesome-markers.js"></script>
+    
+ <script src="assets/js/arqueologia.js"></script>
   </body>
-</html>
+  </html>
