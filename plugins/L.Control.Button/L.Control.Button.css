@@ -1,0 +1,6 @@
+.leaflet-control-button { background-image: url(icon-fullscreen.png); }
+.button { background-image: url(icon-fullscreen.png); }
+
+.leaflet-retina .leaflet-control-button { background-image: url(icon-fullscreen-2x.png); background-size: 26px 26px; }
+.leaflet-container:-webkit-full-screen { width: 100% !important; height: 100% !important; z-index: 99999; }
+
