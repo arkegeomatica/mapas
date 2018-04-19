@@ -114,35 +114,32 @@ function syncSidebar() {
 }
 
 /* Basemap Layers */
-var mapquestOSM = L.tileLayer("https://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png", {
-  maxZoom: 19,
-  subdomains: ["otile1-s", "otile2-s", "otile3-s", "otile4-s"],
-  attribution: 'Tiles courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="https://developer.mapquest.com/content/osm/mq_logo.png">. Map data (c) <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> contributors, CC-BY-SA.'
-});
-var mapquestOAM = L.tileLayer("https://{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg", {
-  maxZoom: 18,
-  subdomains: ["otile1-s", "otile2-s", "otile3-s", "otile4-s"],
-  attribution: 'Tiles courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a>. Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency'
+
+
+    var romano =  L.tileLayer('http://pelagios.org/tilesets/imperium/{z}/{x}/{y}.png',{
+    attribution: 'Pelagios,<a href="http://commons.pelagios.org/2012/09/a-digital-map-of-the-roman-empire/">Digital Atlas of the Roman Empire (DARE)</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+    }).addTo(mymap);
+    return mymap;
 });
 var ortoPNOA = L.tileLayer.wms("http://www.ign.es/wms-inspire/pnoa-ma?", {
     layers: 'OI.OrthoimageCoverage',
     format: 'image/png',
     transparent: true,
-    attribution: 'Cedido por © Instituto Geográfico Nacional'
+    attribution: 'Cedido por Â© Instituto GeogrÃ¡fico Nacional'
 });
 
 var catastro = L.tileLayer.wms("https://ovc.catastro.meh.es/Cartografia/WMS/ServidorWMS.aspx?", {
     layers: 'Catastro',
     format: 'image/png',
     transparent: true,
-    attribution: '<a href="https://www.sedecatastro.gob.es/"" target="_blank">Dirección General de Catastro</a>'
+    attribution: '<a href="https://www.sedecatastro.gob.es/"" target="_blank">DirecciÃ³n General de Catastro</a>'
 });	
 var IGN = L.tileLayer.wms('http://www.ign.es/wms-inspire/mapa-raster', {
 	layers: 'mtn_rasterizado',
 	format: 'image/png',
 	transparent: false,
 	continuousWorld : true,
-	attribution: '© <a href="http://www.ign.es/ign/main/index.do" target="_blank">Instituto Geográfico Nacional de España</a>'
+	attribution: 'Â© <a href="http://www.ign.es/ign/main/index.do" target="_blank">Instituto GeogrÃ¡fico Nacional de EspaÃ±a</a>'
 });
 
 var osm= L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
@@ -368,18 +365,16 @@ if (document.body.clientWidth <= 767) {
 }
 
 var baseLayers = {
-  "Street Map": mapquestOSM,
-  "Aerial Imagery": mapquestOAM,
-  "Imagery with Streets": mapquestHYB,
+	
+  "Imperio Romano": romano,
   "PNOA": ortoPNOA,
   "IGN": IGN,
-  "Catastro": catastro,
-  
+  "Catastro": catastro,  
   "OpenStreetMap":osm
 };
 
 var groupedOverlays = {
-  "Yacimientos Arqueol�gicos": {
+  "Yacimientos Arqueológicos": {
     "<img src='assets/img/theater.png' width='24' height='28'>&nbsp;Castros": yacimientosLayer,
     "<img src='assets/img/museum.png' width='24' height='28'>&nbsp;Yacimientos OSM": osmLayer
   },
